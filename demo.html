@@ -6,7 +6,9 @@
     </head>
     <body>
         <div id="app">
+            <p>currentTime1: {{currentTime1}}</p>
             <p>currentTime1: {{currentTime1()}}</p>
+            <p>currentTime2: {{currentTime2}}</p>
         </div>
 
         <!-- 从cdn导入vue -->
@@ -19,6 +21,11 @@
                 },
                 methods: {
                     currentTime1: function() {
+                        return Date.now();
+                    }
+                },
+                computed: {//注意：methods和computed内部的方法名不能重名,重名之后，只会调用methods的方法
+                    currentTime2: function() {
                         return Date.now();
                     }
                 }
