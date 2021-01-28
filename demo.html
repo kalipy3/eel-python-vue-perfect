@@ -6,8 +6,9 @@
     </head>
     <body>
         <div id="app">
-            <h1 v-if="ok">yes</h1>
-            <h1 v-else>no</h1>
+            <h1 v-if="type==='A'">A</h1>
+            <h1 v-else-if="type==='B'">B</h1>
+            <h1 v-else>C</h1>
         </div>
 
         <!-- 从cdn导入vue -->
@@ -16,7 +17,7 @@
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    ok: true 
+                    type: 'A' 
                 }
             });
         </script>
