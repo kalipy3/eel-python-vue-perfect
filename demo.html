@@ -6,10 +6,9 @@
     </head>
     <body>
         <div id="app">
-            <todo>
-                <todo-title slot="todo-title" v-bind:title="title"></todo-title>
-                <todo-items slot="todo-items" v-for="item1 in todoItems" v-bind:item2="item1"></todo-items>
-            </todo>
+            <!-- HTML 中的 attribute 名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名： -->
+            <!-- 在 HTML 中是 kebab-case 的 重申一次，如果你使用字符串模板，那么这个限制就不存在了。 -->
+            <blog-post post-title="hello!"></blog-post> 
         </div>
 
 
@@ -17,31 +16,15 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             //slot:插槽
-            Vue.component("todo", {
-                template: `
-                            <div>
-                                <slot name="todo-title"></slot>
-                                <ul>
-                                    <slot name="todo-items"></slot>
-                                </ul>
-                            </div>
-                `
-            });
-
-            Vue.component("todo-title", {
-                props: ["title"],
-                template: '<div>{{title}}</div>'
-            });
-            Vue.component("todo-items", {
-                props: ["item2"],
-                template: '<li>{{item2}}</li>'
+            Vue.component('blog-post', {
+                // 在 JavaScript 中是 camelCase 的
+                props: ['postTitle'],
+                template: '<h3>{{ postTitle }}</h3>'
             });
 
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    title: "标题",
-                    todoItems: ["aaa", "bbb", "ccc"]
                 }
             });
         </script>
