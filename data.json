@@ -1,0 +1,69 @@
+{
+    "运行状态监视:": {
+        "参数设置:": {
+            "公司编码": {
+                "cmd": "set_company_no",
+                "regex": "^[1-9]\\d*$"
+            },
+            "逻辑地址": {
+                "cmd": "set_logical_addr",
+                "int": "0,"
+            },
+            "服务器ip": {
+                "cmd": "set_server_ip",
+                "regex": "(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)"
+            },
+            "心跳周期": {
+                "cmd": "set_heartbeat_period",
+                "int": "0,"
+            }
+
+        },
+        "参数读取:": {
+            "公司编码": {
+                "cmd": "get_company_no"
+            },
+            "逻辑地址": {
+                "cmd": "get_logical_addr"
+            },
+            "服务器ip": {
+                "cmd": "get_server_ip"
+            },
+            "心跳周期": {
+                "cmd": "get_heartbeat_period"
+            },
+            "温湿度读取": {
+                "cmd": "get_temp"
+            },
+            "读取运行参数": {
+                "cmd": "get_dynamic_args"
+            }
+        },
+        "设备控制:": {
+            "终端复位重启": {
+                "cmd": "reset"
+            },
+            "终端断电重启": {
+                "cmd": "power_off"
+            },
+            "电源控制": {
+                "cmd": "power_act",
+                "enum": "on,off"
+            },
+            "风扇控制": {
+                "cmd": "fan_act",
+                "enum": "on,off"
+            },
+            "led控制:": {
+                "led开": {
+                    "cmd": "led_act",
+                    "enum": "on"
+                },
+                "led关": {
+                    "cmd": "led_off",
+                    "enum": "off"
+                }
+            }
+        }
+    }
+}

@@ -6,25 +6,18 @@
     </head>
     <body>
         <div id="app">
-            <!-- v-model 会忽略所有表单元素的 value、checked、selected attribute 的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 data 选项中声明初始值。 -->
-            <!-- 组件:传递给组件中的值:props -->
-            <qingjiang v-for="item in items" v-bind:qin="item"></qingjiang>
         </div>
 
         <!-- 从cdn导入vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.11.0/axios.min.js"></script>
         <script>
-            //定义一个组件
-            Vue.component("qingjiang", {
-                //从外面接收一个
-                props: ["qin"],
-                template: '<li>{{qin}}</li>'
-            });
-
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    items: ["java", "linux", "vue"]
+                },
+                mounted() {
+                    axios.get('./data.json').then(response=>(console.log(response.data)));
                 }
             });
         </script>
