@@ -6,9 +6,7 @@
     </head>
     <body>
         <div id="app">
-            <li v-for="item in items">
-                {{item.message}}
-            </li>
+            <button v-on:click="sayHi">click me</button>
         </div>
 
         <!-- 从cdn导入vue -->
@@ -17,10 +15,12 @@
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    items: [
-                        {message: "java"},
-                        {message: "vue"}
-                    ] 
+                    message: "java"
+                },
+                methods: {//方法必须定义在methods对象中,不是method,请注意methods的s
+                    sayHi: function(event) {
+                        alert(this.message);
+                    }
                 }
             });
         </script>
