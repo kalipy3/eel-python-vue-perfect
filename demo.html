@@ -7,8 +7,8 @@
     <body>
         <div id="app">
             <todo>
-                <todo-title></todo-title>
-                <todo-items></todo-items>
+                <todo-title slot="todo-title" v-bind:title="title"></todo-title>
+                <todo-items slot="todo-items" v-for="item1 in todoItems" v-bind:item2="item1"></todo-items>
             </todo>
         </div>
 
@@ -20,25 +20,28 @@
             Vue.component("todo", {
                 template: `
                             <div>
-                                <slot></slot>
+                                <slot name="todo-title"></slot>
                                 <ul>
-                                    <slot></slot>
+                                    <slot name="todo-items"></slot>
                                 </ul>
                             </div>
                 `
             });
 
             Vue.component("todo-title", {
-                template: '<div>标题</div>'
+                props: ["title"],
+                template: '<div>{{title}}</div>'
             });
             Vue.component("todo-items", {
-                template: '<li>java</li>'
+                props: ["item2"],
+                template: '<li>{{item2}}</li>'
             });
 
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    message: "hello,vue"
+                    title: "标题",
+                    todoItems: ["aaa", "bbb", "ccc"]
                 }
             });
         </script>
