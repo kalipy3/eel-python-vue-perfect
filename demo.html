@@ -6,35 +6,20 @@
     </head>
     <body>
         <div id="app">
+            <!-- v-model 会忽略所有表单元素的 value、checked、selected attribute 的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 data 选项中声明初始值。 -->
+            <input type="text" v-model="message">
+            {{message}}
         </div>
-        <div id="example-3">
-            <!-- 在内联 JavaScript 语句中调用方法 -->
-            <button v-on:click="say('hi')">Say hi</button>
-            <button v-on:click="say('what')">Say what</button>
-        </div>
+        
         <!-- 从cdn导入vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    message: "java"
-                },
-                methods: {//方法必须定义在methods对象中,不是method,请注意methods的s
-                    sayHi: function(event) {
-                        alert(this.message);
-                    }
+                    message: "123"
                 }
             });
-
-            new Vue({
-                el: '#example-3',
-                methods: {
-                    say: function (message) {
-                        alert(message)
-                    }
-                }
-            })
         </script>
     </body>
 </html>
