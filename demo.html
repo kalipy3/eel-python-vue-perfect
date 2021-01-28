@@ -6,9 +6,9 @@
     </head>
     <body>
         <div id="app">
-            <h1 v-if="type==='A'">A</h1>
-            <h1 v-else-if="type==='B'">B</h1>
-            <h1 v-else>C</h1>
+            <li v-for="item in items">
+                {{item.message}}
+            </li>
         </div>
 
         <!-- 从cdn导入vue -->
@@ -17,7 +17,10 @@
             var vm = new Vue({
                 el: "#app",
                 data: {
-                    type: 'A' 
+                    items: [
+                        {message: "java"},
+                        {message: "vue"}
+                    ] 
                 }
             });
         </script>
