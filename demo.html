@@ -7,10 +7,10 @@
     <body>
         <div id="app">
             <!-- v-model 会忽略所有表单元素的 value、checked、selected attribute 的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 data 选项中声明初始值。 -->
-            <input type="text" v-model="message">
+            <textarea v-model="message" placeholder="add multiple lines"></textarea>
             {{message}}
         </div>
-        
+
         <!-- 从cdn导入vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
